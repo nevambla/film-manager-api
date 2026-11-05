@@ -37,6 +37,14 @@ module.exports.getAllMyInvitations = function (req, res, next) {
     _links: links
   });
 })
-  .catch((err) => utils.writeJson(res, { errors: [{ param: 'Server', msg: err.message ?? err }] }, 500));
+  .catch((err) => {
+    if (err === "INVALID_STATUS") {
+      utils.writeJson(res, { errors: [{ param: 'status', msg: 'Invalid status. Allowed values: PENDING, ACCEPTED.' }] }, 400);
+    } else if (err === "INVALID_FILMID") {
+      utils.writeJson(res, { errors: [{ param: 'filmId', msg: 'filmId must be a number.' }] }, 400);
+    } else {
+      utils.writeJson(res, { errors: [{ param: 'Server', msg: err.message ?? err }] }, 500);
+    }
+  });
 };
 
