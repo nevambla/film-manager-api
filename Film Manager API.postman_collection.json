@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "dde9d8dc-0e2e-46f3-85cd-46b56db2db3d",
+		"name": "Film Manager API",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "51520063",
+		"_collection_link": "https://nevambla-59138.postman.co/workspace/nevam's-Workspace~914a198c-3ef6-4581-846f-63efee577dee/collection/51520063-dde9d8dc-0e2e-46f3-85cd-46b56db2db3d?action=share&source=collection_link&creator=51520063"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user.dsp@example.com\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/api/users/authenticator"
+					},
+					"response": [
+						{
+							"name": "authUser1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"user.dsp@example.com\",\n  \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/users/authenticator"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "authUser2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"user.dsp@example.com\",\n  \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/users/authenticator"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "authUser3",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"user.dsp@example.com\",\n  \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/users/authenticator"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "LogOut",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/api/users/authenticator/current"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invitations(Owner)",
+			"item": [
+				{
+					"name": "List Film Invitations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/films/public/11/invitations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"films",
+								"public",
+								"11",
+								"invitations"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "includeCompleted",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "ACCEPTED",
+									"description": "PENDING,ACCEPTED,CANCELLED",
+									"disabled": true
+								},
+								{
+									"key": "expiresBefore",
+									"value": "2026-03-01T12:00:00",
+									"description": "YYYY-MM-DD HH:MM:SS",
+									"disabled": true
+								},
+								{
+									"key": "expiresAfter",
+									"value": "2026-03-01T12:00:00",
+									"description": "YYYY-MM-DD HH:MM:SS",
+									"disabled": true
+								},
+								{
+									"key": "acceptedBefore",
+									"value": "2026-01-12 11:52:30",
+									"description": "YYYY-MM-DD HH:MM:SS",
+									"disabled": true
+								},
+								{
+									"key": "acceptedAfter",
+									"value": "2026-01-12 11:52:30",
+									"description": "YYYY-MM-DD HH:MM:SS",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Film Invitations + filters #Test with user1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/films/public/11/invitations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"films",
+										"public",
+										"11",
+										"invitations"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "includeCompleted",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "ACCEPTED",
+											"description": "PENDING,ACCEPTED,CANCELLED",
+											"disabled": true
+										},
+										{
+											"key": "expiresBefore",
+											"value": "2026-03-01T12:00:00",
+											"description": "YYYY-MM-DD HH:MM:SS",
+											"disabled": true
+										},
+										{
+											"key": "expiresAfter",
+											"value": "2026-03-01T12:00:00",
+											"description": "YYYY-MM-DD HH:MM:SS",
+											"disabled": true
+										},
+										{
+											"key": "acceptedBefore",
+											"value": "2026-01-12 11:52:30",
+											"description": "YYYY-MM-DD HH:MM:SS",
+											"disabled": true
+										},
+										{
+											"key": "acceptedAfter",
+											"value": "2026-01-12 11:52:30",
+											"description": "YYYY-MM-DD HH:MM:SS",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Invite users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/api/films/public/2/invitations"
+					},
+					"response": [
+						{
+							"name": "Invite users #user2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"reviewerId\": 1\n  },\n  {\n    \"reviewerId\": 3,\n    \"expiresAt\": \"2026-03-01T12:00:00\"\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/films/public/2/invitations"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invite with past expire date #user2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"reviewerId\": 4,\n    \"expiresAt\": \"2022-03-01T12:00:00\"\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/films/public/2/invitations"
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete invitation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:3001/api/films/public/2/invitations/5"
+					},
+					"response": [
+						{
+							"name": "Delete invitation of user 5 #user2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:3001/api/films/public/2/invitations/5"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Invitations(User)",
+			"item": [
+				{
+					"name": "List my invitations + filters",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/films/public/invitations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"films",
+								"public",
+								"invitations"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "",
+									"description": "PENDING or PENDING,ACCEPTED",
+									"disabled": true
+								},
+								{
+									"key": "filmId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "expiresBefore",
+									"value": "",
+									"description": "YYYY-MM-DD HH:MM:SS",
+									"disabled": true
+								},
+								{
+									"key": "expiresAfter",
+									"value": "",
+									"description": "YYYY-MM-DD HH:MM:SS",
+									"disabled": true
+								},
+								{
+									"key": "pageNo",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Accept #user1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:3001/api/films/public/invitations/accept"
+					},
+					"response": []
+				},
+				{
+					"name": "Single Accept #user3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:3001/api/films/public/invitations/accept"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review(User)",
+			"item": [
+				{
+					"name": "Complete Review(User)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3001/api/films/public/7/reviews/3"
+					},
+					"response": [
+						{
+							"name": "Without accepting #user3",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"completed\": true,\n  \"reviewDate\": \"2026-01-30\",\n  \"rating\": 10,\n  \"review\": \"i love it as much as i can\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/films/public/7/reviews/3"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Accepted #user3",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"completed\": true,\n  \"reviewDate\": \"2026-01-30\",\n  \"rating\": 10,\n  \"review\": \"i love it as much as i can\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3001/api/films/public/6/reviews/3"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
+}
