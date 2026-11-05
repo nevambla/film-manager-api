@@ -58,9 +58,9 @@ module.exports.issueInvitations = function issueInvitations(req, res, next) {
         utils.writeJson(res, { errors: [{ param: 'Server', msg: 'The user is not the owner of the film.' }] }, 403);
       } else if (err === "INVALID_BODY") {
         utils.writeJson(res, { errors: [{ param: 'body', msg: 'Invalid invitation list.' }] }, 400);
-        } else if (err === "INVALID_EXPIRES_AT") {
+      } else if (err === "INVALID_EXPIRESAT") {
         utils.writeJson(res, { errors: [{ param: 'expiresAt', msg: 'Invalid date-time format.' }] }, 400);
-      } else if (err === "EXPIRES_AT_IN_PAST") {
+      } else if (err === "EXPIRES_IN_PAST") {
         utils.writeJson(res, { errors: [{ param: 'expiresAt', msg: 'expiresAt must be in the future.' }] }, 400);
       } else if (err === "DUPLICATE_INVITATION") {
         utils.writeJson(res, { errors: [{ param: 'Server', msg: 'One or more invitations already exist.' }] }, 409);
