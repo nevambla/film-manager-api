@@ -62,6 +62,8 @@ module.exports.issueInvitations = function issueInvitations(req, res, next) {
         utils.writeJson(res, { errors: [{ param: 'expiresAt', msg: 'Invalid date-time format.' }] }, 400);
       } else if (err === "EXPIRES_IN_PAST") {
         utils.writeJson(res, { errors: [{ param: 'expiresAt', msg: 'expiresAt must be in the future.' }] }, 400);
+      } else if (err && err.code === "REVIEWER_NOT_FOUND") {
+        utils.writeJson(res, { errors: [{ param: 'reviewerId', msg: `User(s) not found: ${err.reviewerIds.join(', ')}.` }] }, 404);
       } else if (err === "DUPLICATE_INVITATION") {
         utils.writeJson(res, { errors: [{ param: 'Server', msg: 'One or more invitations already exist.' }] }, 409);
       } else if (err === "OWNER_CANNOT_INVITE_SELF") {

@@ -401,6 +401,17 @@ exports.issueInvitationsForFilm = function (filmId, ownerId, invitationList) {
         }
       }
 
+      // every invited reviewer must exist
+      const reviewerIds = [...new Set(invitationList.map(it => Number(it.reviewerId)))];
+      const sqlUsers = `SELECT id FROM users WHERE id IN (${reviewerIds.map(() => '?').join(',')})`;
+      db.all(sqlUsers, reviewerIds, (errUsers, userRows) => {
+      if (errUsers) return reject(errUsers);
+      const existingIds = new Set(userRows.map(u => u.id));
+      const missingIds = reviewerIds.filter(id => !existingIds.has(id));
+      if (missingIds.length > 0) {
+        return reject({ code: "REVIEWER_NOT_FOUND", reviewerIds: missingIds });
+      }
+
       // insert invitations one by one 
       const created = [];
       const insertOne = (idx) => {
@@ -482,7 +493,8 @@ exports.issueInvitationsForFilm = function (filmId, ownerId, invitationList) {
       .catch(reject);
       };
       insertOne(0);
-    });  
+      });
+    });
   })
   .catch(reject);
   });
