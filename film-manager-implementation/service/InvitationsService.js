@@ -5,7 +5,7 @@ const serviceUtils = require('../utils/serviceUtils.js');
 const ExpirationService = require('./ExpirationService');
 
 const ALLOWED_STATUSES = new Set(['PENDING', 'ACCEPTED', 'CANCELLED']);
-const DEFAULT_EXPIRES_VALUE = `'9999-12-31 23:59:59'`;
+const DEFAULT_EXPIRES_VALUE = '9999-12-31 23:59:59';
 
 function parseStatuses(statusQuery, { allowCancelled }) {
   if (statusQuery === undefined) return null;
